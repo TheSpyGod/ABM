@@ -4,7 +4,8 @@
   --background: #F1F1F1;
   --foreground: #003366;
   --accent1: #ebbf0f;
-  --accent-activated:#FFCC00;
+  --accent-activatedlight:#FFCC00;
+  --accent-activateddark: #4b4a4a;
   --accent2: #333333;
   --border-radius: 16px;
   --small-height: 14%; 
@@ -19,24 +20,21 @@
 
 /* Each text block */
 .rotating-text {
+  display: block;
   position: absolute;
-  color: var(--accent1);
+  color: var(--accent-activatedlight);
+  left: 0;
+  top: 0;
+  z-index: 1;
   opacity: 0;
+  width: auto; /* Ensure it fits the content naturally */
   animation: rotateText 9s infinite ease-in-out;
 }
 
 /* Delayed animations for each text */
-.rotating-text:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.rotating-text:nth-child(2) {
-  animation-delay: 3s;
-}
-
-.rotating-text:nth-child(3) {
-  animation-delay: 6s;
-}
+.rotating-text:nth-child(1) { animation-delay: 0s; }
+.rotating-text:nth-child(2) { animation-delay: 3s; }
+.rotating-text:nth-child(3) { animation-delay: 6s; }
 
 /* Animation Keyframes */
 @keyframes rotateText {
@@ -51,4 +49,24 @@ body {
   background: white;
   color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  z-index: 10;
+}
+
+@media only screen and (max-width: 880px) {
+  .titlescreen span {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header button {
+    width: 80px;
+    font-size:x-small;
+  }
+  .header {
+    gap: 0;
+  }
 }
