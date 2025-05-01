@@ -70,3 +70,7 @@ body {
     gap: 0;
   }
 }
+
+.fade-section {
+  transition: opacity 0.8s ease;
+}
